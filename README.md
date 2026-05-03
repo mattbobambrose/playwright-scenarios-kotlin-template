@@ -16,7 +16,7 @@ A starter Kotlin/Gradle project pre-wired for the [`playwright-scenarios`](https
 
 ## Getting started
 
-1. **Clone this repo** somewhere convenient.
+1. **Use this template.** Click the green **Use this template → Create a new repository** button at the top of the GitHub page to spin up your own copy. Then clone the new repo locally. (Plain `git clone` of *this* repo also works if you don't want a fresh repo of your own.)
 2. **Download the Playwright browsers** (one-time, ~200 MB):
    ```
    ./gradlew installPlaywrightBrowsers
