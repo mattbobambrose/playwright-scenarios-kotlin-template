@@ -1,0 +1,1 @@
+Placeholder scenario file. Replace with real recorded Playwright scenarios.
