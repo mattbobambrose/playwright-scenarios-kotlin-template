@@ -8,7 +8,7 @@ A starter Kotlin/Gradle project pre-wired for the [`playwright-scenarios`](https
 - Two Gradle tasks the plugin invokes:
     - `installPlaywrightBrowsers` — one-time browser binary download.
     - `recordScenario` — launches Playwright codegen, used by `/record-scenario`.
-- The partition layout under `src/test/kotlin/com/mattbobambrose/scenarios/`:
+- The partition layout under `src/test/kotlin/com/mattbobambrose/scenarios/` (scaffolded by the plugin on first run):
     - `record/` — output of `/record-scenario`
     - `crawl/` — output of `/crawl-site`
     - `convert/` — output of `/doc-to-scenarios`
