@@ -1,4 +1,4 @@
-package com.mattbobambrose.scenarios.convert
+package scenarios.crawl
 
 import io.kotest.core.spec.style.StringSpec
 
@@ -8,10 +8,10 @@ import io.kotest.core.spec.style.StringSpec
 // each extending BasePageTest (created by `/scaffold-base-test`).
 // Safe to delete once you have generated tests of your own.
 //
-// Don't rename this to BaseConvertTest / ConvertTestBase / AbstractConvertTest /
-// ConvertPageTest — those patterns match `loading-config`'s base-test-class
+// Don't rename this to BaseCrawlTest / CrawlTestBase / AbstractCrawlTest /
+// CrawlPageTest — those patterns match `loading-config`'s base-test-class
 // discovery globs and would suppress the BasePageTest scaffold offer.
-class ConvertTest : StringSpec({
-  "placeholder for convert scenario tests" {
+class CrawlTest : StringSpec({
+  "placeholder for crawl scenario tests" {
   }
 })
