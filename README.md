@@ -12,7 +12,10 @@ A starter Kotlin/Gradle project pre-wired for the [`playwright-scenarios`](https
     - `record/` — output of `/record-scenario`
     - `crawl/` — output of `/crawl-site`
     - `convert/` — output of `/doc-to-scenarios`
-- An example reviewed scenario at `src/test/scenarios/record/add-to-cart-and-checkout.md` so you can see the format before recording your own.
+- One example reviewed scenario per partition under `src/test/scenarios/` so you can see the format before authoring your own:
+    - `record/add-to-cart-and-checkout.md` — recorded checkout flow
+    - `crawl/nav-to-cart.md` — single-click navigation discovered by `/crawl-site`
+    - `convert/login-and-logout-roundtrip.md` — multi-test scenario converted from a doc by `/doc-to-scenarios`
 - JUnit 5 platform wired up so Kotest StringSpec runs.
 
 ## Getting started
@@ -60,8 +63,12 @@ The tutorial's Step 7 has you run `/scaffold-base-test` as your first plugin com
         │   ├── crawl/                  # generated tests from /crawl-site
         │   └── convert/                # generated tests from /doc-to-scenarios
         └── scenarios/
-            └── record/
-                └── add-to-cart-and-checkout.md   # example reviewed scenario
+            ├── record/
+            │   └── add-to-cart-and-checkout.md   # example: recorded checkout flow
+            ├── crawl/
+            │   └── nav-to-cart.md                # example: single-click nav from /crawl-site
+            └── convert/
+                └── login-and-logout-roundtrip.md # example: multi-test scenario from /doc-to-scenarios
 ```
 
 Scenario markdown lives at `src/test/scenarios/{record,crawl,convert}/` — the partition subdirs are created by `loading-config` on first run. The placeholder `*Test.kt` files in each test partition are smoke tests so `./gradlew test` passes immediately; you can leave them alongside generated tests or delete them once you have your own.
