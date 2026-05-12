@@ -11,7 +11,9 @@ import io.kotest.core.spec.style.StringSpec
 // Don't rename this to BaseConvertTest / ConvertTestBase / AbstractConvertTest /
 // ConvertPageTest — those patterns match `loading-config`'s base-test-class
 // discovery globs and would suppress the BasePageTest create-base-test offer.
-class ConvertTest : StringSpec({
-  "placeholder for convert scenario tests" {
+class ConvertTest : StringSpec() {
+  init {
+    "placeholder for convert scenario tests" {
+    }
   }
-})
+}
