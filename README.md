@@ -8,7 +8,7 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
 - Two Gradle tasks the plugin invokes:
     - `installPlaywrightBrowsers` — one-time browser binary download.
     - `recordScenario` — launches Playwright codegen, used by `/record-scenario`.
-- The partition layout under `src/test/kotlin/scenarios/`, each holding a no-op `*Test.kt` smoke placeholder so `./gradlew test` passes on a fresh clone:
+- The partition layout under `src/test/kotlin/com/bookshelf/scenarios/`, each holding a no-op `*Test.kt` smoke placeholder so `./gradlew test` passes on a fresh clone:
     - `crawl/` — output of `/crawl-site`
     - `record/` — output of `/record-scenario`
     - `convert/` — output of `/doc-to-scenarios`
@@ -36,7 +36,7 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
    ```
 5. **Follow the [tutorial](https://mattbobambrose.github.io/playwright-scenarios/tutorial/)** — a 5-step walkthrough that exercises crawl, record, and doc-driven authoring, ending with an executable test suite.
 
-The tutorial's Step 8 has you run `/create-base-test` as your first plugin command. That triggers the config bootstrap (four required fields — accept the defaults; they match this layout) followed by three customizations (reset endpoint, lifecycle scope, browser — defaults are fine for the tutorial). When it finishes, `BasePageTest.kt` lands at `src/test/kotlin/scenarios/BasePageTest.kt` (sibling to the `crawl/` / `record/` / `convert/` partition subdirs, in package `scenarios`) and `base_test_class` is persisted in the config.
+The tutorial's Step 8 has you run `/create-base-test` as your first plugin command. That triggers the config bootstrap (four required fields — accept the defaults; they match this layout) followed by three customizations (reset endpoint, lifecycle scope, browser — defaults are fine for the tutorial). When it finishes, `BasePageTest.kt` lands at `src/test/kotlin/com/bookshelf/scenarios/BasePageTest.kt` (sibling to the `crawl/` / `record/` / `convert/` partition subdirs, in package `com.bookshelf.scenarios`) and `base_test_class` is persisted in the config.
 
 ## Requirements
 
@@ -58,7 +58,7 @@ The tutorial's Step 8 has you run `/create-base-test` as your first plugin comma
 └── src/
     ├── main/kotlin/Main.kt             # placeholder for your application code
     └── test/
-        ├── kotlin/scenarios/
+        ├── kotlin/com/bookshelf/scenarios/
         │   ├── crawl/                  # generated tests from /crawl-site
         │   ├── record/                 # generated tests from /record-scenario
         │   └── convert/                # generated tests from /doc-to-scenarios
