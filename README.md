@@ -36,7 +36,7 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
    ```
 5. **Follow the [tutorial](https://mattbobambrose.github.io/playwright-scenarios/tutorial/)** — a 5-step walkthrough that exercises crawl, record, and doc-driven authoring, ending with an executable test suite.
 
-The tutorial's Step 7 has you run `/scaffold-base-test` as your first plugin command. That triggers the config bootstrap (four required fields — accept the defaults; they match this layout) followed by three scaffold customizations (reset endpoint, lifecycle scope, browser — defaults are fine for the tutorial). When it finishes, `BasePageTest.kt` lands at `src/test/kotlin/BasePageTest.kt` and `base_test_class` is persisted in the config.
+The tutorial's Step 8 has you run `/scaffold-base-test` as your first plugin command. That triggers the config bootstrap (four required fields — accept the defaults; they match this layout) followed by three scaffold customizations (reset endpoint, lifecycle scope, browser — defaults are fine for the tutorial). When it finishes, `BasePageTest.kt` lands at `src/test/kotlin/BasePageTest.kt` and `base_test_class` is persisted in the config.
 
 ## Requirements
 
