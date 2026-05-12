@@ -1,4 +1,4 @@
-package scenarios.record
+package com.bookshelf.scenarios.record
 
 import io.kotest.core.spec.style.StringSpec
 

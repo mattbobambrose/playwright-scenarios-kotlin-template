@@ -10,7 +10,7 @@ Navigating from the homepage to the Cart page via the header cart link. With no 
 
 - **Action:** Click the "Cart 0" link in the page header.
 - **Expected:** The URL changes to `/cart`.
-- **Expected:** The page title is "Cart · Bookshelf Demo".
+- **Expected:** The page title is "Cart · Bookstore Demo".
 - **Expected:** The heading "Your Cart" (h1) is visible.
 - **Expected:** The text "Your cart is empty." is visible.
 - **Expected:** A "Browse the catalog →" link pointing to `/catalog` is visible.
