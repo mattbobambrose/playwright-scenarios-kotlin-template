@@ -11,7 +11,9 @@ import io.kotest.core.spec.style.StringSpec
 // Don't rename this to BaseRecordTest / RecordTestBase / AbstractRecordTest /
 // RecordPageTest — those patterns match `loading-config`'s base-test-class
 // discovery globs and would suppress the BasePageTest create-base-test offer.
-class RecordTest : StringSpec({
-  "placeholder for record scenario tests" {
+class RecordTest : StringSpec() {
+  init {
+    "placeholder for record scenario tests" {
+    }
   }
-})
+}
