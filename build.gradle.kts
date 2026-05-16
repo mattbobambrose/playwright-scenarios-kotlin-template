@@ -1,6 +1,8 @@
 plugins {
-  kotlin("jvm") version "2.3.20"
+  alias(libs.plugins.kotlin.jvm)
+  alias(libs.plugins.ben.manes.versions)
 }
+val jvmTargetVersion = libs.versions.jvm.get()
 
 group = "com.bookshelf"
 version = "1.0-SNAPSHOT"
@@ -11,12 +13,12 @@ repositories {
 
 dependencies {
   testImplementation(kotlin("test"))
-  testImplementation("com.microsoft.playwright:playwright:1.47.0")
-  testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
+  testImplementation(libs.playwright)
+  testImplementation(libs.kotest.runner.junit5)
 }
 
 kotlin {
-  jvmToolchain(17)
+  jvmToolchain(jvmTargetVersion.toInt())
 }
 
 tasks.test {

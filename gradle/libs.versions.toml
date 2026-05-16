@@ -1,0 +1,28 @@
+[versions]
+# Kotlin
+kotlin = "2.3.20"
+
+# Testing
+kotest = "5.9.1"
+
+# Browser automation
+playwright = "1.47.0"
+
+# Build tooling
+ben-manes-versions = "0.54.0"
+gradle = "9.5.1"
+jvm = "17"
+
+[libraries]
+# Testing
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+
+# Browser automation
+playwright = { module = "com.microsoft.playwright:playwright", version.ref = "playwright" }
+
+[plugins]
+# Kotlin
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
+# Build tooling
+ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
