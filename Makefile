@@ -3,7 +3,7 @@
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install install-browsers install-cli test build clean versioncheck upgrade-wrapper _require-gradle-version
+.PHONY: help install install-browsers install-cli test build clean record _require-record-args versioncheck upgrade-wrapper _require-gradle-version
 GRADLE_VERSION := $(shell sed -n 's/^gradle = "\(.*\)"/\1/p' gradle/libs.versions.toml)
 
 help: ## Show this help
@@ -26,6 +26,12 @@ build: ## Compile sources and run tests (full build)
 clean: ## Remove build artifacts
 	./gradlew clean
 
+record: _require-record-args ## Record a browser flow with Playwright codegen (url=<start-url> out=<path>)
+	./gradlew recordScenario -Purl=$(url) -Pout=$(out)
+
+_require-record-args:
+	@[ -n "$(url)" ] && [ -n "$(out)" ] || { echo "ERROR: Provide url=<start-url> and out=<output-path>, e.g. make record url=https://example.com out=src/test/java/Recorded.java" >&2; exit 1; }
+
 versioncheck: ## Check for dependency updates
 	./gradlew dependencyUpdates
 
@@ -38,3 +44,4 @@ upgrade-wrapper: _require-gradle-version ## Re-run the Gradle wrapper task at th
 
 _require-gradle-version:
 	@[ -n "$(GRADLE_VERSION)" ] || { echo "ERROR: Could not determine gradle version from gradle/libs.versions.toml" >&2; exit 1; }
+	

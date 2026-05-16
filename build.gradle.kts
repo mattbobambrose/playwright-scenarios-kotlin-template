@@ -4,9 +4,6 @@ plugins {
 }
 val jvmTargetVersion = libs.versions.jvm.get()
 
-group = "com.bookshelf"
-version = "1.0-SNAPSHOT"
-
 repositories {
   mavenCentral()
 }
