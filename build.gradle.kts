@@ -24,12 +24,12 @@ kotlin {
 
 tasks.test {
   useJUnitPlatform()
+
   testLogging {
     events = setOf(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED, TestLogEvent.STANDARD_ERROR)
     exceptionFormat = TestExceptionFormat.FULL
     showStandardStreams = false
   }
-
 }
 
 tasks.register<JavaExec>("installPlaywrightBrowsers") {
