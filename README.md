@@ -21,27 +21,13 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
 ## Getting started
 
 1. **Use this template.** Click the green **Use this template → Create a new repository** button at the top of the GitHub page to spin up your own copy. Then clone the new repo locally. (Plain `git clone` of *this* repo also works if you don't want a fresh repo of your own.)
-2. **Download the Playwright browsers** (one-time, ~200 MB):
-   ```
-   ./gradlew installPlaywrightBrowsers
-   ```
-3. **Open Claude Code** in the project root:
-   ```
-   claude
-   ```
-4. **Install the plugin:**
-   ```
-   /plugin marketplace add mattbobambrose/playwright-scenarios
-   /plugin install playwright-scenarios@playwright-scenarios
-   ```
-5. **Follow the [tutorial](https://mattbobambrose.github.io/playwright-scenarios/tutorial/)** — a 5-step walkthrough that exercises crawl, record, and doc-driven authoring, ending with an executable test suite.
+2. **Follow the [tutorial](https://mattbobambrose.github.io/playwright-scenarios/tutorial/)** — a 5-step walkthrough that exercises crawl, record, and doc-driven authoring, ending with an executable test suite.
 
 The tutorial's final Setup sub-step (Step 1, sub-step 8) has you run `/create-base-test` as your first plugin command. That triggers the config bootstrap (four required fields — accept the defaults; they match this layout) followed by three customizations (reset endpoint, lifecycle scope, browser — defaults are fine for the tutorial). When it finishes, `BasePageTest.kt` lands at `src/test/kotlin/com/bookshelf/scenarios/BasePageTest.kt` (sibling to the `crawl/` / `record/` / `convert/` partition subdirs, in package `com.bookshelf.scenarios`) and `base_test_class` is persisted in the config.
 
 ## Requirements
 
 - JDK 17 or later (the toolchain is set in `build.gradle.kts`).
-- Gradle wrapper is included; you don't need a system Gradle install.
 - `playwright-cli` for the live-site exploration commands (`/crawl-site`, `/review-scenario`, `/scenario-to-tests`):
   ```
   npm install -g @playwright/cli@latest
