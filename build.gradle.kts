@@ -1,7 +1,11 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
   alias(libs.plugins.kotlin.jvm)
   alias(libs.plugins.ben.manes.versions)
 }
+
 val jvmTargetVersion = libs.versions.jvm.get()
 
 repositories {
@@ -20,6 +24,12 @@ kotlin {
 
 tasks.test {
   useJUnitPlatform()
+  testLogging {
+    events = setOf(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED, TestLogEvent.STANDARD_ERROR)
+    exceptionFormat = TestExceptionFormat.FULL
+    showStandardStreams = false
+  }
+
 }
 
 tasks.register<JavaExec>("installPlaywrightBrowsers") {
