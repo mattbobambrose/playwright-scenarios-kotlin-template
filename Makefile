@@ -3,7 +3,7 @@
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install install-browsers install-cli test test-one build clean record versions upgrade-wrapper _require-gradle-version
+.PHONY: help install install-browsers install-cli tests test-one build clean record versions upgrade-wrapper _require-gradle-version
 
 GRADLE_VERSION := $(shell sed -n 's/^gradle = "\(.*\)"/\1/p' gradle/libs.versions.toml)
 
@@ -27,7 +27,7 @@ clean: ## Remove build artifacts
 build: ## Compile sources and run tests (full build)
 	./gradlew build
 
-test: ## Run the test suite
+tests: ## Run the test suite
 	./gradlew test
 
 test-one: ## Run a single test class (class=<FQCN>)
