@@ -16,6 +16,9 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
     - `crawl/nav-to-cart.md` — single-click navigation discovered by `/crawl-site`
     - `record/add-to-cart-and-checkout.md` — recorded checkout flow
     - `convert/login-and-logout-roundtrip.md` — multi-test scenario converted from a doc by `/doc-to-scenarios`
+- Two example input documents under `src/test/docs/` — sample `/doc-to-scenarios` inputs written to the plugin's `TEST_DOC_GUIDE.md` conventions:
+    - `checkout-user-story.md` — the checkout flow framed as a user story with acceptance criteria
+    - `checkout-test-spec.md` — the checkout page covered exhaustively, element by element
 - JUnit 5 platform wired up so Kotest StringSpec runs.
 
 ## Getting started
@@ -39,6 +42,9 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
 └── src/
     ├── main/kotlin/Main.kt             # placeholder for your application code
     └── test/
+        ├── docs/
+        │   ├── checkout-user-story.md             # example: user story input for /doc-to-scenarios
+        │   └── checkout-test-spec.md              # example: test spec input for /doc-to-scenarios
         ├── kotlin/com/bookshelf/scenarios/
         │   ├── crawl/                  # generated tests from /crawl-site
         │   ├── record/                 # generated tests from /record-scenario
@@ -54,4 +60,4 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
 
 Scenario markdown lives at `src/test/scenarios/{crawl,record,convert}/` — the partition subdirs are created by `loading-config` on first run. The placeholder `*Test.kt` files in each test partition are smoke tests so `./gradlew test` passes immediately; you can leave them alongside generated tests or delete them once you have your own.
 
-`src/test/docs/` is a suggested home for the input documents you feed to `/doc-to-scenarios`. The plugin doesn't enforce this location — pass any path you like — but having a stable directory keeps your repo tidy.
+`src/test/docs/` is a suggested home for the input documents you feed to `/doc-to-scenarios`; it ships with two examples, `checkout-user-story.md` and `checkout-test-spec.md`. The plugin doesn't enforce this location — pass any path you like — but having a stable directory keeps your repo tidy.
