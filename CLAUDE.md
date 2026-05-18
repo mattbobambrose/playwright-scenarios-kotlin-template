@@ -7,7 +7,7 @@ Kotlin/Gradle starter pre-wired for the [`playwright-scenarios`](https://github.
 The `Makefile` wraps Gradle — `make help` lists every target. Common ones:
 
 - `make build` — compile and run tests (`./gradlew build`)
-- `make test` — run the test suite (`./gradlew test`)
+- `make tests` — run the test suite (`./gradlew test`)
 - `make install` — one-time setup: Playwright browser binaries + the global `playwright-cli` npm package
 - `make record url=<start-url> out=<path>` — launch Playwright codegen
 
@@ -21,7 +21,7 @@ All versions live in the `gradle/libs.versions.toml` version catalog — change 
 
 - `src/test/scenarios/{crawl,record,convert}/` — scenario markdown, one folder per authoring command (`/crawl-site`, `/record-scenario`, `/doc-to-scenarios`); one reviewed example ships in each.
 - `src/test/kotlin/com/bookshelf/scenarios/{crawl,record,convert}/` — generated tests mirror the scenario folders; `/scenario-to-tests` writes `<scenario-name>/<ClassName>.kt` here.
-- `src/test/docs/` — suggested home for input documents fed to `/doc-to-scenarios`.
+- `src/test/docs/` — suggested home for input documents fed to `/doc-to-scenarios`; ships two examples, `checkout-user-story.md` and `checkout-test-spec.md`.
 - `src/main/kotlin/Main.kt` — placeholder for your application code.
 
 ## Placeholder tests
