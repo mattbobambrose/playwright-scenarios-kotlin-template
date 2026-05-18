@@ -8,14 +8,6 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
 - Two Gradle tasks the plugin invokes:
     - `installPlaywrightBrowsers` — one-time browser binary download.
     - `recordScenario` — launches Playwright codegen, used by `/record-scenario`.
-- The partition layout under `src/test/kotlin/com/bookshelf/scenarios/`, each holding a no-op `*Test.kt` smoke placeholder so `./gradlew test` passes on a fresh clone:
-    - `crawl/` — output of `/crawl-site`
-    - `record/` — output of `/record-scenario`
-    - `convert/` — output of `/doc-to-scenarios`
-- One example reviewed scenario per partition under `src/test/scenarios/` so you can see the format before authoring your own:
-    - `crawl/nav-to-cart.md` — single-click navigation discovered by `/crawl-site`
-    - `record/add-to-cart-and-checkout.md` — recorded checkout flow
-    - `convert/login-and-logout-roundtrip.md` — multi-test scenario converted from a doc by `/doc-to-scenarios`
 - Two example input documents under `src/test/docs/` — sample `/doc-to-scenarios` inputs written to the plugin's `TEST_DOC_GUIDE.md` conventions:
     - `checkout-user-story.md` — the checkout flow framed as a user story with acceptance criteria
     - `checkout-test-spec.md` — the checkout page covered exhaustively, element by element
@@ -42,22 +34,11 @@ A Kotlin repo that demonstrates the use of the [`playwright-scenarios`](https://
 └── src/
     ├── main/kotlin/Main.kt             # placeholder for your application code
     └── test/
-        ├── docs/
-        │   ├── checkout-user-story.md             # example: user story input for /doc-to-scenarios
-        │   └── checkout-test-spec.md              # example: test spec input for /doc-to-scenarios
-        ├── kotlin/com/bookshelf/scenarios/
-        │   ├── crawl/                  # generated tests from /crawl-site
-        │   ├── record/                 # generated tests from /record-scenario
-        │   └── convert/                # generated tests from /doc-to-scenarios
-        └── scenarios/
-            ├── crawl/
-            │   └── nav-to-cart.md                # example: single-click nav from /crawl-site
-            ├── record/
-            │   └── add-to-cart-and-checkout.md   # example: recorded checkout flow
-            └── convert/
-                └── login-and-logout-roundtrip.md # example: multi-test scenario from /doc-to-scenarios
+        └── docs/                       # example input documents for /doc-to-scenarios
+            ├── checkout-user-story.md
+            └── checkout-test-spec.md
 ```
 
-Scenario markdown lives at `src/test/scenarios/{crawl,record,convert}/` — the partition subdirs are created by `loading-config` on first run. The placeholder `*Test.kt` files in each test partition are smoke tests so `./gradlew test` passes immediately; you can leave them alongside generated tests or delete them once you have your own.
+The plugin keys scenarios and tests by authoring command — `crawl/` (`/crawl-site`), `record/` (`/record-scenario`), and `convert/` (`/doc-to-scenarios`). Scenario markdown lands under `src/test/scenarios/<command>/` and generated tests under `src/test/kotlin/com/bookshelf/scenarios/<command>/`. Those folders aren't committed — the plugin's `loading-config` skill creates them on the first command run — so the template starts with an empty test suite that fills as you author scenarios and generate tests.
 
 `src/test/docs/` is a suggested home for the input documents you feed to `/doc-to-scenarios`; it ships with two examples, `checkout-user-story.md` and `checkout-test-spec.md`. The plugin doesn't enforce this location — pass any path you like — but having a stable directory keeps your repo tidy.
